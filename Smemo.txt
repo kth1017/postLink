@@ -1,0 +1,6 @@
+# github에 readme를 먼저 만든 후 새 프로젝트 push를 위해 git pull을 하려면 서로 연관 없는 프로젝트로 거부됨
+- git pull origin 브런치명 --allow-unrelated-histories를 통해 해결
+
+# form안에 submit해야 작동(당연함)
+
+# 배열 인덱스에 검증안하면 npe뜸
