@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -32,14 +30,14 @@ public class NewCode {
         }
 
         // 기능2
-        String[] resultArr = addTitleText.split("Index");
-        String resultText = resultArr[0]+"Index";
+        String[] resultArr = addTitleText.split("<blockquote data-ke-style=\"style2\">Index</blockquote>");
+        String resultText = resultArr[0]+"<blockquote data-ke-style=\"style2\">Index";
 
         for (int i = 0; i < oldCode.getNewTitleList().size(); i++) {
             int j = i+1;
             resultText += "<br /><a href=\"#"+j+"th\">"+j+" "+oldCode.getNewTitleList().get(i)+"</a>";
         }
-        resultText += resultArr[1];
+        resultText += "</blockquote>"+resultArr[1];
 
         this.setAllNewCode(resultText);
 

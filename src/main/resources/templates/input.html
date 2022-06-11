@@ -14,7 +14,7 @@
         <form action="input.html" th:action="@{/}" th:object="${form}" method="post">
             <div class="form-group">
                 <label th:for="allcode">원본 html코드 전문</label>
-                <input type="text" class="form-control" th:field="*{allCode}" placeholder="html코드를 입력해주세요.">
+                <textarea rows="10" cols="50" class="form-control" th:field="*{allCode}" placeholder="html코드를 입력해주세요."></textarea>
             </div><div class="form-group">
                 <label th:for="titleHtmlKeyword">타이틀 구분 키워드</label>
                 <input type="text" class="form-control" th:field="*{titleHtmlKeyword}" placeholder="keyword를 입력해주세요.">

@@ -2,6 +2,7 @@ package fadet.postLink.web.controller;
 
 import fadet.postLink.domain.NewCode;
 import fadet.postLink.domain.OldCode;
+import fadet.postLink.repository.OldCodeRepository;
 import fadet.postLink.service.LinkService;
 import fadet.postLink.web.InputForm;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LinkController {
 
     private final LinkService linkService;
+    private final OldCodeRepository oldCodeRepository;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -32,12 +35,13 @@ public class LinkController {
         newOne.setTitleHtmlKeyword(form.getTitleHtmlKeyword());
 
         linkService.saveCode(newOne);
-        return "redirect:/";
+        int id = oldCodeRepository.size();
+        return "redirect:/"+id;
     }
 
-    @GetMapping("/1")
-    public String result(Model model) {
-        NewCode result = linkService.newCode(1L);
+    @GetMapping("/{id}")
+    public String result(@PathVariable("id") Long id, Model model) {
+        NewCode result = linkService.newCode(id);
         model.addAttribute("newCode", result);
         return "result";
 
