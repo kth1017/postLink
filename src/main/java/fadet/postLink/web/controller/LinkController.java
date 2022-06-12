@@ -53,6 +53,8 @@ public class LinkController {
     public String result(@PathVariable("id") Long id, Model model) {
         NewCode result = linkService.newCode(id);
         model.addAttribute("newCode", result);
+
+
         return "result";
 
     }
