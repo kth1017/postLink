@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class InputForm {
+public class ValidForm {
     private Long id;
 
     private String allCode;

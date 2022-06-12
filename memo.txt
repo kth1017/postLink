@@ -6,3 +6,7 @@
 ! keyword에서 \" 는 입력폼에선 필요 없음
 ! index /blockquote로 끝 닫아줘야함
 ! 수정 후 공백이 사라져 코드의 레이아웃이 깨짐
+
+# commit 2
+
+- textarea를 써서 개행문자 유지

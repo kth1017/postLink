@@ -31,7 +31,8 @@ public class NewCode {
 
         // 기능2
         String[] resultArr = addTitleText.split("<blockquote data-ke-style=\"style2\">Index</blockquote>");
-        String resultText = resultArr[0]+"<blockquote data-ke-style=\"style2\">Index";
+//        String resultText = resultArr[0]+"<blockquote data-ke-style=\"style2\">Index";
+        String resultText = resultArr[0]+oldCode.getIndexHtmlKeyword();
 
         for (int i = 0; i < oldCode.getNewTitleList().size(); i++) {
             int j = i+1;

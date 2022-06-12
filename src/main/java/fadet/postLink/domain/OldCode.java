@@ -17,17 +17,15 @@ public class OldCode {
     // 필수 입력
     private String allCode;
     private String titleHtmlKeyword;
+    private String indexHtmlKeyword;
 
     // 입력값을 분리하여 변수로 생성
     private Long titleCount;
 
     private List<String> oldTitleList;
     private List<String> newTitleList;
+    private int indexOver;
 
-    public OldCode(String allCode, String titleHtmlKeyword) {
-        this.allCode = allCode;
-        this.titleHtmlKeyword = titleHtmlKeyword;
-    }
 
     /*
         init method
@@ -62,5 +60,8 @@ public class OldCode {
         }
 
         setNewTitleList(newList);
+
+        // indexOver init
+
     }
 }

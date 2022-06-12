@@ -17,6 +17,10 @@ public class LinkService {
         oldCodeRepository.save(oldCode);
     }
 
+    public OldCode findOne(Long id) {
+        return oldCodeRepository.findOne(id);
+    }
+
     public NewCode newCode(Long id) {
         NewCode result = oldCodeRepository.result(id);
         return result;

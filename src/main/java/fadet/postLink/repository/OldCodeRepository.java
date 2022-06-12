@@ -25,6 +25,10 @@ public class OldCodeRepository {
         return oldCode;
     }
 
+    public OldCode findOne(Long id) {
+        return store.get(id);
+    }
+
     public NewCode result(Long id) {
         OldCode oldCode = store.get(id);
         NewCode newCode = new NewCode();
