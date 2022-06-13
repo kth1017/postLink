@@ -21,6 +21,12 @@ public class LinkService {
         return oldCodeRepository.findOne(id);
     }
 
+    public void changeCode(OldCode oldCode) {
+        int id = oldCodeRepository.size();
+        oldCodeRepository.change((long)id, oldCode);
+
+    }
+
     public NewCode newCode(Long id) {
         NewCode result = oldCodeRepository.result(id);
         return result;

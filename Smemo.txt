@@ -4,3 +4,8 @@
 # form안에 submit해야 작동(당연함)
 
 # 배열 인덱스에 검증안하면 npe뜸
+
+# 타임리프에서 th:value와 th:field 충돌시 value 무시
+- field는 id, name, value 모두 포함
+
+# post 버튼 중복 클릭시 Request method 'POST' not supported

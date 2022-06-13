@@ -25,6 +25,13 @@ public class OldCodeRepository {
         return oldCode;
     }
 
+    public OldCode change(Long id, OldCode oldCode) {
+        oldCode.setId(id);
+        store.remove(id);
+        store.put(id, oldCode);
+        return oldCode;
+    }
+
     public OldCode findOne(Long id) {
         return store.get(id);
     }

@@ -19,12 +19,12 @@ public class NewCode {
 
 
     public void init(OldCode oldCode) {
-        // 기능1
+        // 기능1 타이틀별 링크
+
         String[] oldCodeArrByKeyword = oldCode.getAllCode().split(oldCode.getTitleHtmlKeyword());
         String addTitleText = oldCodeArrByKeyword[0];
 
         String[] modiTitleKeywordArr = oldCode.getTitleHtmlKeyword().split(" ");
-        String modiTitleKeyword = "";
 
         int arrLen = oldCodeArrByKeyword.length;
         for (int i = 1; i < arrLen; i++) {
@@ -32,7 +32,7 @@ public class NewCode {
             addTitleText += oldCodeArrByKeyword[i];
         }
 
-        // 기능2
+        // 기능2 인덱스 자동완성
 
 //        String[] resultArr = addTitleText.split("<blockquote data-ke-style=\"style2\">Index</blockquote>");
         String[] resultArr = addTitleText.split(oldCode.getIndexHtmlKeyword());

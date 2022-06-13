@@ -35,6 +35,7 @@ public class LinkController {
         newOne.setAllCode(form.getAllCode());
         newOne.setTitleHtmlKeyword(form.getTitleHtmlKeyword());
         newOne.setIndexHtmlKeyword(form.getIndexHtmlKeyword());
+        newOne.init();
 
         linkService.saveCode(newOne);
         int id = oldCodeRepository.size();
@@ -42,12 +43,41 @@ public class LinkController {
     }
 
     @GetMapping("/valid/{id}")
-    public String valid(@PathVariable("id") Long id, @ModelAttribute("validForm") ValidForm validForm, Model model) {
+    public String valid(@PathVariable("id") Long id, Model model) {
         OldCode oldCode = linkService.findOne(id);
+
+        ValidForm validForm = new ValidForm();
+        validForm.setAllCode(oldCode.getAllCode());
+        validForm.setTitleHtmlKeyword(oldCode.getTitleHtmlKeyword());
+        validForm.setIndexHtmlKeyword(oldCode.getIndexHtmlKeyword());
+
+        model.addAttribute("validForm", validForm);
+        model.addAttribute("oldCode", oldCode);
         model.addAttribute("titleNum", oldCode.getNewTitleList().size());
 
         return "valid";
     }
+
+    @PostMapping("/valid/{id}")
+    public String validPost(@PathVariable("id") Long id, @ModelAttribute("validForm") ValidForm validForm, Model model) {
+
+        OldCode changeOne = new OldCode();
+        changeOne.setAllCode(validForm.getAllCode());
+        changeOne.setTitleHtmlKeyword(validForm.getTitleHtmlKeyword());
+        changeOne.setIndexHtmlKeyword(validForm.getIndexHtmlKeyword());
+        changeOne.init();
+
+        linkService.changeCode(changeOne);
+        OldCode findOne = linkService.findOne(id);
+
+        model.addAttribute("validForm", new ValidForm());
+        model.addAttribute("oldCode", findOne);
+        model.addAttribute("titleNum", findOne.getNewTitleList().size());
+
+        return "redirect:/valid/"+id;
+    }
+
+
 
     @GetMapping("/{id}")
     public String result(@PathVariable("id") Long id, Model model) {
