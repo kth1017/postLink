@@ -2,7 +2,7 @@ package fadet.postLink.web.controller;
 
 import fadet.postLink.domain.NewCode;
 import fadet.postLink.domain.OldCode;
-import fadet.postLink.repository.OldCodeRepository;
+import fadet.postLink.repository.CodeRepository;
 import fadet.postLink.service.LinkService;
 import fadet.postLink.web.InputForm;
 import fadet.postLink.web.ValidForm;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LinkController {
 
     private final LinkService linkService;
-    private final OldCodeRepository oldCodeRepository;
+    private final CodeRepository codeRepository;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -38,7 +38,7 @@ public class LinkController {
         newOne.init();
 
         linkService.saveCode(newOne);
-        int id = oldCodeRepository.size();
+        int id = codeRepository.size();
         return "redirect:/valid/"+id;
     }
 

@@ -2,15 +2,13 @@ package fadet.postLink.repository;
 
 import fadet.postLink.domain.NewCode;
 import fadet.postLink.domain.OldCode;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class OldCodeRepository {
+public class CodeRepository {
 
     private static Map<Long, OldCode> store = new HashMap<>();
     private static long sequence = 0L;
