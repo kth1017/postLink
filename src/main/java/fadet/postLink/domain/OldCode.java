@@ -60,6 +60,7 @@ public class OldCode {
 
         List<String> newList = new ArrayList<>();
 
+        // 임시로 글씨체를 포함하도록 로직을 짬(이후 고쳐야함)
         for (int i = 0; i < this.oldTitleList.size(); i++) {
             newList.add(this.oldTitleList.get(i).split(">")[1]);;
         }

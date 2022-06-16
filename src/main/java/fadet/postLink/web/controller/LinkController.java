@@ -84,9 +84,7 @@ public class LinkController {
         NewCode result = linkService.newCode(id);
         model.addAttribute("newCode", result);
 
-
         return "result";
-
     }
 
 

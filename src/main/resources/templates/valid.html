@@ -21,7 +21,7 @@
                 <input type="text" class="form-control" th:field="*{titleHtmlKeyword}"/>
             </div>
             <div class="form-group">
-                <label th:for="indexHtmlKeyword">입력된 타이틀 구분 키워드</label>
+                <label th:for="indexHtmlKeyword">입력된 인덱스 구분 키워드</label>
                 <input type="text" class="form-control" th:field="*{indexHtmlKeyword}"/>
             </div>
         <button type="submit" class="btn btn-primary">수정</button>
@@ -36,7 +36,7 @@
         <br>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
         <a th:if="${oldCode.indexOver == 2}" th:href="@{/{id}(id = ${oldCode.id})}" role="button" class="btn btn-primary">변환</a>
-x
+
     </div>
 </div>
 </body>
